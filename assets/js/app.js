@@ -27,6 +27,12 @@ Hooks.InfiniteScroll = {
   updated(){ this.pending = this.page() }
 }
 
+Hooks.Toggle = {
+  updated() {
+    document.cookie = "toggle=" + this.el.attributes.toggle.value
+  }
+}
+
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {hooks: Hooks, params: {_csrf_token: csrfToken}})
 

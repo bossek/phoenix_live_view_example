@@ -47,6 +47,8 @@ defmodule DemoWeb.Router do
     # If enabling the LiveDashboard in prod,
     # put it behind proper authentication.
     live_dashboard "/dashboard", metrics: DemoWeb.Telemetry
+
+    get "/toggle", PageController, :toggle
   end
 
   scope "/", DemoWeb do
